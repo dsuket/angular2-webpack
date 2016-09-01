@@ -50,6 +50,7 @@ go to [http://localhost:8080](http://localhost:8080) in your browser.
     * [Testing](#testing)
     * [Production](#production)
     * [Documentation](#documentation)
+    * [Template Compiler](#documentation)
 * [Frequently asked questions](#faq)
 * [TypeScript](#typescript)
 * [License](#license)
@@ -113,6 +114,13 @@ You can now go to `/dist` and deploy that to your server!
 You can generate api docs (using [TypeDoc](http://typedoc.io/)) for your code with the following:
 
 * `npm run docs`
+
+## Template Compiler
+you can compile the template.
+```
+$ npm run ngc
+```
+See: https://github.com/angular/angular/tree/master/modules/%40angular/compiler-cli
 
 # FAQ
 
