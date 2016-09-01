@@ -45,9 +45,12 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#entry
    */
   config.entry = isTest ? {} : {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts' // our angular app
+    // 'polyfills': './src/polyfills.ts',
+    // 'vendor': './src/vendor.ts',
+    // 'app': './src/main.ts' // our angular app
+    'polyfills': './src/polyfills.js',
+    'vendor': './src/vendor.js',
+    'app': './src/main.js' // our angular app
   };
 
   /**
@@ -56,7 +59,7 @@ module.exports = function makeWebpackConfig() {
    */
   config.output = isTest ? {} : {
     path: root('dist'),
-    publicPath: isProd ? '/' : 'http://localhost:8080/',
+    publicPath: isProd ? '/' : 'http://localhost:8081/',
     filename: isProd ? 'js/[name].[hash].js' : 'js/[name].js',
     chunkFilename: isProd ? '[id].[hash].chunk.js' : '[id].chunk.js'
   };
@@ -69,7 +72,8 @@ module.exports = function makeWebpackConfig() {
     cache: !isTest,
     root: root(),
     // only discover files that have those extensions
-    extensions: ['', '.ts', '.js', '.json', '.css', '.scss', '.html'],
+    // extensions: ['', '.ts', '.js', '.json', '.css', '.scss', '.html'],
+    extensions: ['', '.js', '.json', '.css', '.scss', '.html'],
     alias: {
       'app': 'src/app',
       'common': 'src/common'
@@ -83,14 +87,14 @@ module.exports = function makeWebpackConfig() {
    * This handles most of the magic responsible for converting modules
    */
   config.module = {
-    preLoaders: isTest ? [] : [{test: /\.ts$/, loader: 'tslint'}],
+    // preLoaders: isTest ? [] : [{test: /\.ts$/, loader: 'tslint'}],
     loaders: [
       // Support for .ts files.
-      {
-        test: /\.ts$/,
-        loaders: ['ts', 'angular2-template-loader', '@angularclass/hmr-loader'],
-        exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
-      },
+      // {
+      //   test: /\.ts$/,
+      //   loaders: ['ts', 'angular2-template-loader', '@angularclass/hmr-loader'],
+      //   exclude: [isTest ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
+      // },
 
       // copy those assets to output
       {
@@ -251,6 +255,7 @@ module.exports = function makeWebpackConfig() {
    */
   config.devServer = {
     contentBase: './src/public',
+    port: 8081,
     historyApiFallback: true,
     stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
   };

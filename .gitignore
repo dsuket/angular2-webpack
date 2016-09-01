@@ -53,3 +53,13 @@ __build__/**
 # IDE #
 .idea/
 *.swp
+
+# JS src
+/src/**/*.js
+/src/**/*.js.map
+
+# ngc
+/src/**/*.metadata.json
+/src/**/*.ngfactory.ts
+/src/**/*.scss.shim.ts
+

@@ -8,5 +8,9 @@
     "noEmitHelpers": true
   },
   "compileOnSave": false,
-  "buildOnSave": false
+  "buildOnSave": false,
+  "angularCompilerOptions": {
+    "genDir": ".",
+    "debug": true
+  }
 }
