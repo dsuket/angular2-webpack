@@ -10,8 +10,8 @@ if (process.env.ENV === 'build') {
 }
 
 export function main() {
-  return platformBrowserDynamic().bootstrapModule(AppModule);
-  // return platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
+  //return platformBrowserDynamic().bootstrapModule(AppModule);
+  return platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 }
 
 if (document.readyState === 'complete') {
